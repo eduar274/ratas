@@ -12,9 +12,6 @@ import java.util.Scanner;
  */
 public class Rutas {
 
-    /**
-     * @param args the command line arguments
-     */
     static ArrayList<String> mant= new ArrayList();
     static ArrayList<String> rutaA= new ArrayList();
     static ArrayList<String> rutaB= new ArrayList();
@@ -51,15 +48,17 @@ public class Rutas {
                 }while(ver==false);
                 
                 ver=false;
+	    
                 do{
                 System.out.println("digite 30 minutos o 0 minutos");
                 horas2=Leer.nextInt();
-                if(horas2==30 || horas2==0){
-                    cal.set(Calendar.MINUTE, horas2);
-                    ver=true;
-                }
+                	if(horas2==30 || horas2==0){
+                    		cal.set(Calendar.MINUTE, horas2);
+                    		ver=true;
+                	}
                 }while(ver==false);
-                ver=false;
+                
+	        ver=false;
                 
                 cal.set(Calendar.HOUR_OF_DAY, horas1);
                 cal.set(Calendar.MINUTE, horas2);
@@ -80,7 +79,6 @@ public class Rutas {
             System.out.println("Horas viajadas: "+horasTotal);
             System.out.println("hora actual EN 12H: "+horaAct+" o "+cal.get(Calendar.HOUR)+":"+cal.get(Calendar.MINUTE));
 	    System.out.println("hora actual EN 24H: "+horaAct+" o "+cal.get(Calendar.HOUR_OF_DAY)+":"+cal.get(Calendar.MINUTE));
-       
     }
 	
     public static void imp(){
@@ -215,8 +213,7 @@ public class Rutas {
                  System.out.println(rutaF);
              }else{
                  ruta(ciu,terminar);
-             }
-                 
+             }           
         }else{
                  ciu= (String) String.get(String.indexOf(ciu)-1);
                  hor= (double) horas.get(String.indexOf(ciu)-1);
@@ -232,8 +229,6 @@ public class Rutas {
                      ruta(ciu,terminar);
                  }
              }
-        
-        
     }
     
     public static void actHora(){
@@ -258,7 +253,6 @@ public class Rutas {
     }
     
     public static void listas(){
-       
         // relleno lista de mantenimiento
         mant.add("riohacha");
         mant.add("14"); mant.add("18");
@@ -278,7 +272,6 @@ public class Rutas {
         mant.add("22"); mant.add("2");
         mant.add("la paz");
         mant.add("10"); mant.add("13");
-        
         //relleno lista de la ruta A
         rutaA.add("santa marta"); rutaA.add("la paz"); rutaA.add("monteria"); rutaA.add("sincelejo"); rutaA.add("cartagena"); rutaA.add("barranquilla");
         //relleno lista de la ruta A2
@@ -297,8 +290,7 @@ public class Rutas {
     }
     
     public static boolean compMant(String ciu, ArrayList<String> n,double hora){
-        
-        
+   
         if(mant.contains(ciu)){
                 int n2=n.lastIndexOf(ciu);
         int n3=n.lastIndexOf(n.get(n2+1));
@@ -306,9 +298,7 @@ public class Rutas {
         //System.out.println("mant");
         Double nn= Double.parseDouble(n.get(n3));
         Double nn2= Double.parseDouble(n.get(n4));
-        
         //System.out.println(ciu+" "+" "+n.get(n3)+" "+n.get(n4));
-        
             if(ciu.equals("plato")||ciu.equals("cartagena")){
                   if(hora<nn && hora>nn2){//mirar si tengo que sumar o restar una hora
                    //System.out.println("puede pasar");
@@ -317,8 +307,7 @@ public class Rutas {
                         System.out.println("no puede ingresar");
                         return false;
                     }
-            }else{
-            
+            }else{ 
                 if(hora>nn-0.1 && hora<nn2+0.1 ){
                     System.out.println("no puede ingresar");
                     return false;
@@ -331,7 +320,6 @@ public class Rutas {
             //System.out.println("puede pasar");
             return true;
         }
-    
     }
-    
+ 
 }
