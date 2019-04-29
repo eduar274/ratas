@@ -32,20 +32,15 @@ public class Rutas {
     static double horaAct=0.0;
     
     public static void main(String[] args) {
-        // TODO code application logic here
+       
        		Scanner Leer=new Scanner(System.in);
-
-        
-        listas();
+        	listas();
                 cal.set(Calendar.HOUR_OF_DAY, 0);
                 cal.set(Calendar.MINUTE, 00);
 		int horas1;
                 int horas2;
                 boolean ver=false;
-	
-        
                // System.out.println("24-hour clock : " + cal.get(Calendar.HOUR_OF_DAY)+":"+cal.get(Calendar.MINUTE));
-		
                 do{
                 System.out.println("digite la hora en militar");
                 horas1=Leer.nextInt();
@@ -54,8 +49,6 @@ public class Rutas {
                     ver=true;
                 }
                 }while(ver==false);
-                
-                
                 
                 ver=false;
                 do{
@@ -85,15 +78,19 @@ public class Rutas {
                 System.out.println("Termino recorrido");
             System.out.println(rutaF);
             System.out.println("Horas viajadas: "+horasTotal);
-            System.out.println("hora actual: "+horaAct+" o "+cal.get(Calendar.HOUR)+":"+cal.get(Calendar.MINUTE));
+            System.out.println("hora actual EN 12H: "+horaAct+" o "+cal.get(Calendar.HOUR)+":"+cal.get(Calendar.MINUTE));
+	    System.out.println("hora actual EN 24H: "+horaAct+" o "+cal.get(Calendar.HOUR_OF_DAY)+":"+cal.get(Calendar.MINUTE));
        
     }
+	
     public static void imp(){
         System.out.println("Recorrido sin llegar a destino");
             System.out.println(rutaF);
             System.out.println("Horas viajadas: "+horasTotal);
-            System.out.println("hora actual: "+horaAct+" o "+cal.get(Calendar.HOUR)+":"+cal.get(Calendar.MINUTE));
+            System.out.println("hora actual EN 12H: "+horaAct+" o "+cal.get(Calendar.HOUR)+":"+cal.get(Calendar.MINUTE));
+	    System.out.println("hora actual EN 24H: "+horaAct+" o "+cal.get(Calendar.HOUR_OF_DAY)+":"+cal.get(Calendar.MINUTE));
     }
+	
     public static void ruta(String inicio,String terminar){
         boolean a=false;
         boolean b=false;
@@ -107,16 +104,16 @@ public class Rutas {
             System.out.println("No puede salir de la ciudad actual");
             System.out.println(rutaF);
             System.out.println("Horas viajadas: "+horasTotal);
-            System.out.println("hora actual: "+horaAct+" o "+cal.get(Calendar.HOUR)+":"+cal.get(Calendar.MINUTE));
+            System.out.println("hora actual EN 12H: "+horaAct+" o "+cal.get(Calendar.HOUR)+":"+cal.get(Calendar.MINUTE));
+	    System.out.println("hora actual EN 24H: "+horaAct+" o "+cal.get(Calendar.HOUR_OF_DAY)+":"+cal.get(Calendar.MINUTE));
         }else{
         if(inicio.equals(terminar)){
             System.out.println("Final recorrido");
             System.out.println(rutaF);
             System.out.println("Horas viajadas: "+horasTotal);
-            System.out.println("hora actual: "+horaAct+" o "+cal.get(Calendar.HOUR)+":"+cal.get(Calendar.MINUTE));
-        
+            System.out.println("hora actual EN 12H: "+horaAct+" o "+cal.get(Calendar.HOUR)+":"+cal.get(Calendar.MINUTE));
+	    System.out.println("hora actual EN 24H: "+horaAct+" o "+cal.get(Calendar.HOUR_OF_DAY)+":"+cal.get(Calendar.MINUTE));
         }else{
-        
         if(rutaA.contains(inicio)&& rutaA.contains(terminar)){
             a=true;
         }
@@ -130,7 +127,6 @@ public class Rutas {
             escoger(inicio,a,b,c,terminar);
         }else{
             if(a==false && b==false && c==false){
-           
                     if(rutaA.contains(inicio)){
                         a=true;
                     }
@@ -141,15 +137,10 @@ public class Rutas {
                         c=true;
                     }
                     escoger(inicio,a,b,c,terminar);
+        	}
+              }	          
+           }
         }
-        }          
-        }
-        }
-                    
-                
-            
-        
-      
     }
     
     public static void escoger(String inicio,boolean a,boolean b,boolean c,String terminar){
@@ -161,26 +152,20 @@ public class Rutas {
             //System.out.print(numero);
             if(numero==1 && a==true){
                n2=true;
-               Mov(inicio,rutaA,rutaA2,terminar);
-               
+               Mov(inicio,rutaA,rutaA2,terminar);  
             }
             if(numero==2 && b==true){
                n2=true;
-               Mov(inicio,rutaB,rutaB2,terminar);
-               
+               Mov(inicio,rutaB,rutaB2,terminar);      
             }
             if(numero==3 && c==true){
                n2=true;
-               Mov(inicio,rutaC,rutaC2,terminar);
-               
-            }
-           
+               Mov(inicio,rutaC,rutaC2,terminar);         
+            }     
         }
-        
     }
     
-    
-    public static void Mov(String ciu, ArrayList String,ArrayList horas,String terminar){
+    public static void Mov(String ciu, ArrayList String,ArrayList horas,String terminar){ //REVISAR { }
         double hor;
         boolean retorno=true;
         System.out.println("mov1");
@@ -197,7 +182,6 @@ public class Rutas {
                 }else{
                     ruta(ciu,terminar);
                 }
-                
         }else{
                     ciu= (String) String.get(String.indexOf(ciu)+1);
                     hor= (double) horas.get(String.indexOf(ciu));
@@ -210,12 +194,8 @@ public class Rutas {
                             Mov2(ciu,String,horas,terminar);
                         }else{
                             ruta(ciu,terminar);
-                        }
-                        
+                        }         
         }
-        
-        
-        
     }
     
     public static void Mov2(String ciu, ArrayList String,ArrayList horas,String terminar){
@@ -311,7 +291,9 @@ public class Rutas {
         rutaC.add("valledupar"); rutaC.add("plato"); rutaC.add("san benito"); rutaC.add("monteria"); rutaC.add("santa marta");
         //relleno lista de la ruta C2
         rutaC2.add(1.5); rutaC2.add(3.0); rutaC2.add(2.0); rutaC2.add(4.0); rutaC2.add(3.0);
-        
+	//relleno lista de ciudades
+        ciudades.add("riohacha"); ciudades.add("santa marta"); ciudades.add("barranquilla"); ciudades.add("cartagena"); ciudades.add("sincelejo"); ciudades.add("monteria");
+  	ciudades.add("valledupar"); ciudades.add("plato"); ciudades.add("la paz"); ciudades.add("san benito");  
     }
     
     public static boolean compMant(String ciu, ArrayList<String> n,double hora){
