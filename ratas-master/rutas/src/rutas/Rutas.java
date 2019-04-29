@@ -293,7 +293,7 @@ public class Rutas {
         // relleno lista de mantenimiento
         mant.add("riohacha");
         mant.add("14"); mant.add("18");
-        mant.add("santa marta");
+        mant.add("santa marta");  //mant.add("santa-marta");
         mant.add("1"); mant.add("4");
         mant.add("barranquilla");
         mant.add("15"); mant.add("21");
@@ -307,7 +307,7 @@ public class Rutas {
         mant.add("6"); mant.add("11");
         mant.add("plato");  // este va en otra
         mant.add("22"); mant.add("2");
-        mant.add("la paz");
+        mant.add("la paz"); //mant.add("la-paz");
         mant.add("10"); mant.add("13");
         //relleno lista de la ruta A
         rutaA.add("santa-marta"); rutaA.add("la-paz"); rutaA.add("monteria"); rutaA.add("sincelejo"); rutaA.add("cartagena"); rutaA.add("barranquilla");
